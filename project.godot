@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Frog Samurai"
-config/features=PackedStringArray("4.2", "Mobile")
+config/name="SamuraiFrog"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [rendering]
