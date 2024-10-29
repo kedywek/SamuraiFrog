@@ -4,7 +4,7 @@ var run_speed = 400.0
 var acceleration = 0.1
 var deceleration = 0.1
 const jump = -600.0
-const jumpMultiplier = [1.1, 1.2, 1.3]
+const jumpMultiplier = [1.2, 1.3]
 
 var dash_speed = 1100
 var dash_max_distance = 1000
