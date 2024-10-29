@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5koihh3coaax"
-path="res://.godot/imported/frog_idle.png-f0c252c74a4da3c67c4b87ba2a6c533d.ctex"
+uid="uid://1d1su4t082ki"
+path="res://.godot/imported/frog_attack.png-a8488269b4afaeefc72264364b1709ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/frog_idle.png"
-dest_files=["res://.godot/imported/frog_idle.png-f0c252c74a4da3c67c4b87ba2a6c533d.ctex"]
+source_file="res://sprites/player/frog_attack.png"
+dest_files=["res://.godot/imported/frog_attack.png-a8488269b4afaeefc72264364b1709ed.ctex"]
 
 [params]
 
