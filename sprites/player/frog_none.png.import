@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b20stv1thxi11"
-path="res://.godot/imported/CircularProgressBar.png-0753a2133ac97a78e3c4cdd57684c6b0.ctex"
+uid="uid://bx6kkkytq5ymf"
+path="res://.godot/imported/frog_none.png-af524d32a4d35b4919e08fff4cbd4e00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CircularProgressBar.png"
-dest_files=["res://.godot/imported/CircularProgressBar.png-0753a2133ac97a78e3c4cdd57684c6b0.ctex"]
+source_file="res://sprites/player/frog_none.png"
+dest_files=["res://.godot/imported/frog_none.png-af524d32a4d35b4919e08fff4cbd4e00.ctex"]
 
 [params]
 

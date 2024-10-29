@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkroha6k87kwx"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_5pw7r"]
-[ext_resource type="Texture2D" uid="uid://c4rb5a51ald6v" path="res://assets/player/frog_2.png" id="1_gmi7m"]
-[ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://assets/CircularProgressBar.png" id="3_8ffhc"]
+[ext_resource type="Texture2D" uid="uid://c4rb5a51ald6v" path="res://sprites/player/frog_2.png" id="1_gmi7m"]
+[ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/CircularProgressBar.png" id="3_8ffhc"]
 
 [sub_resource type="Curve" id="Curve_3phni"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.175292), -1.40888, 0.0, 0, 0]
@@ -56,7 +56,17 @@ emitting = false
 amount = 1800
 process_material = SubResource("ParticleProcessMaterial_lhdui")
 
-[node name="ProgressBar" type="TextureProgressBar" parent="."]
+[node name="jump_charge" type="TextureProgressBar" parent="."]
+offset_left = 21.0
+offset_top = -28.0
+offset_right = 59.0
+offset_bottom = 10.0
+max_value = 200.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("3_8ffhc")
+
+[node name="jump_regen" type="TextureProgressBar" parent="."]
 offset_left = -4.0
 offset_top = -42.0
 offset_right = 296.0
@@ -64,6 +74,10 @@ offset_bottom = 258.0
 scale = Vector2(0.03, 0.03)
 fill_mode = 4
 texture_progress = ExtResource("3_8ffhc")
+
+[node name="jump_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

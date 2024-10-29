@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1d1su4t082ki"
-path="res://.godot/imported/frog_attack.png-dbcba72c4f66e1410ac929585b6d6382.ctex"
+uid="uid://bgo1xyujfwjxa"
+path="res://.godot/imported/frog_run.png-46c475ede28e5eade02a4823d8bd273b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/frog_attack.png"
-dest_files=["res://.godot/imported/frog_attack.png-dbcba72c4f66e1410ac929585b6d6382.ctex"]
+source_file="res://sprites/player/frog_run.png"
+dest_files=["res://.godot/imported/frog_run.png-46c475ede28e5eade02a4823d8bd273b.ctex"]
 
 [params]
 
