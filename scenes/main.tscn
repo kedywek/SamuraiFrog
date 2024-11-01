@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhpqsbr5nna7y"]
+[gd_scene load_steps=7 format=3 uid="uid://bhpqsbr5nna7y"]
 
 [ext_resource type="PackedScene" uid="uid://bkroha6k87kwx" path="res://scenes/characters/player.tscn" id="1_qu1rk"]
 [ext_resource type="Texture2D" uid="uid://s6b3r0br8etq" path="res://icon.svg" id="2_j3vgt"]
@@ -12,9 +12,6 @@ size = Vector2(50, 1347)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgtoi"]
 size = Vector2(52, 1370)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aar06"]
-size = Vector2(9.5, 100)
 
 [node name="main" type="Node2D"]
 
@@ -79,23 +76,3 @@ position = Vector2(550, 110)
 [node name="player" parent="." instance=ExtResource("1_qu1rk")]
 position = Vector2(309, 236)
 scale = Vector2(1.2, 1.2)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(468, 154)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(-1.52588e-05, -3.8147e-06)
-scale = Vector2(0.0781252, 0.78125)
-texture = ExtResource("2_j3vgt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_aar06")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(468, 108)
-node_a = NodePath("../platform3")
-node_b = NodePath("../RigidBody2D")
-disable_collision = false
-softness = 16.0
-motor_enabled = true
-motor_target_velocity = -3.49066

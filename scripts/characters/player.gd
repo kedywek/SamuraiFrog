@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 var run_speed = 400.0
-var acceleration = 0.1
-var deceleration = 0.1
+var acceleration = 0.08
+var deceleration = 0.08
 const jump_height1 = -800.0
 const jump_height2 = -600.0
 const jump_height3 = -400.0
@@ -28,21 +28,28 @@ var time_left = 0
 func _process(_delta: float) -> void:
 	flip_sprite()
 	
+	#	pokazywanie kółka cooldownu dasha
 	if $jump_regen.value == 100:
 		$jump_regen.visible = false
 	else:
 		$jump_regen.visible = true
 		
-	
+	#	pokazywanie kółka charge'owania jumpa
 	if $jump_timer.is_stopped() or $jump_charge.value == 0:
 		$jump_charge.visible = false
 	else:
 		$jump_charge.visible = true
 	
+	#	zmiana wartości kółka dasha
 	$jump_regen.set_value((1 - $dash_cooldown.time_left)*100)
 	
-	$jump_charge.set_value((2 - $jump_timer.time_left)*100)
-	
+	#	zmiana wartości charge'owania jumpa
+	if $jump_timer.time_left > 1:
+		$jump_charge.set_value(50)
+	elif $jump_timer.time_left > 0.5:
+		$jump_charge.set_value(100)
+	else:
+		$jump_charge.set_value(150)
 
 
 func _physics_process(delta: float) -> void:
@@ -70,9 +77,9 @@ func handle_state_transitions():
 		$jump_timer.stop()
 		print(time_left)
 		state = States.Jump
-		if(2.0 > time_left and time_left >= 1.5):
+		if(1.5 > time_left and time_left >= 1.0):
 			velocity.y = jump_height3
-		elif (1.5 > time_left and time_left >= 1.0):
+		elif (1.0 > time_left and time_left >= 0.5):
 			velocity.y = jump_height2
 		else:
 			velocity.y = jump_height1
