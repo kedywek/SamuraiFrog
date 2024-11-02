@@ -107,18 +107,27 @@ func perform_state_actions(delta):
 	match state:
 		States.Idle:
 			$Label.text="Idle"
+			$AnimationPlayer.play("idle")
 			velocity.x = move_toward(velocity.x, 0, run_speed * deceleration)
 			
 		States.Run:
 			$Label.text="Run"
+			$AnimationPlayer.play("run")
 			velocity.x = move_toward(velocity.x, run_speed * direction, run_speed * acceleration)
 		
 		States.Charge:
 			$Label.text="Charge"
+			$AnimationPlayer.play("charge")
 			velocity.x = 0
 		
 		States.Jump:
 			$Label.text="Jump"
+			if velocity.y > 0:
+				$AnimationPlayer.play("fall")
+			elif velocity.y <=0:
+				$AnimationPlayer.play("jump")
+				
+				
 			velocity.x = move_toward(velocity.x, run_speed * direction, run_speed * acceleration)
 			
 			
