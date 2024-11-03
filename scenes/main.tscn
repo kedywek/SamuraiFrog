@@ -12,5 +12,3 @@ tile_map_data = PackedByteArray("AAASAA4AAAAOAAAAAAASAA8AAAAOAAEAAAASABAAAAAOAAI
 [node name="player" parent="." instance=ExtResource("1_qu1rk")]
 position = Vector2(309, 236)
 scale = Vector2(1.2, 1.2)
-
-[node name="ChargeTime" type="Timer" parent="player"]
