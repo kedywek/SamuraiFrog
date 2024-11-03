@@ -69,8 +69,7 @@ func handle_state_transitions():
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		state = States.Charge
-		$ChargeTime.start()
-		$ChargeTime.one_shot = true
+		$jump_timer.start()
 		
 		
 	if state == States.Charge and Input.is_action_just_released("jump"):
