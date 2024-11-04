@@ -84,7 +84,7 @@ func handle_state_transitions():
 		else:
 			velocity.y = jump_height1
 		
-	if direction != 0 and state != States.Charge:
+	if is_on_floor() and direction != 0 and state != States.Charge:
 		state = States.Run
 	
 	elif is_on_floor() and state != States.Charge:
@@ -93,16 +93,13 @@ func handle_state_transitions():
 	if !is_on_floor() and state != States.Attack:
 		state = States.Jump
 		
-		
 	if !is_on_floor() and state == States.Jump and not is_dashing and can_dash and Input.is_action_just_pressed("attack") and direction:
 		state = States.Attack
+		#can_dash=false
 
-		
-		
-		
+
 func perform_state_actions(delta):
-	var can_move = true
-	$GPUParticles2D.emitting = false
+	$AttackEffectBehind.emitting = false
 	
 	match state:
 		States.Idle:
@@ -127,49 +124,53 @@ func perform_state_actions(delta):
 			elif velocity.y <=0:
 				$AnimationPlayer.play("jump")
 				
-				
 			velocity.x = move_toward(velocity.x, run_speed * direction, run_speed * acceleration)
 			
 			
 		States.Attack:
-			$GPUParticles2D.emitting = true
-			if velocity.x>0:
-				#$GPUParticles2D.set_direction(Vector3(1, 0, 0))
-				$GPUParticles2D.process_material.set_direction(Vector3(-1, 0, 0))
-			elif velocity.x < 0:
-				#$GPUParticles2D.set_direction(Vector3(-1, 0, 0))
-				$GPUParticles2D.process_material.set_direction(Vector3(1, 0, 0))
+			if not is_dashing:
+				if velocity.x>0:
+					$attackR.play("default")
+				elif velocity.x<0:
+					$attackL.play("default")
+				dashing_effect_particles()
 				
-			$Label.text="Attack"
-			$dash_timer.start()
-			$dash_cooldown.start()
-			is_dashing = true
-			can_dash = false
-			dash_start_position = position.x
-			dash_direction = direction
+				$Label.text="Attack"
+				
+				$dash_cooldown.start()
+				dash_start_position = position.x
+				dash_direction = direction
+				can_dash = false
+				is_dashing = true
+				
+				var current_distance = abs(position.x - dash_start_position)
+				if current_distance >= dash_max_distance or is_on_wall():
+					is_dashing = false
+				else:
+					velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
+				
+				$dash_timer.start()
 			
 			
-			var current_distance = abs(position.x - dash_start_position)
-			
-			if current_distance >= dash_max_distance or is_on_wall():
-				is_dashing = false
-			else:
-				velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
-						
-
-	
-	
 func flip_sprite():
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
 	elif velocity.x > 0:
 		$Sprite2D.flip_h = false
+		
+func dashing_effect_particles():
+	$AttackEffectBehind.emitting = true
+	if velocity.x>0:
+		$AttackEffectBehind.process_material.set_direction(Vector3(-1, 0, 0))
+	elif velocity.x < 0:
+		$AttackEffectBehind.process_material.set_direction(Vector3(1, 0, 0))
 
 
 #czas dasha
 func _on_dash_timer_timeout() -> void:
+	state = States.Jump
 	is_dashing = false
-
+	
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
