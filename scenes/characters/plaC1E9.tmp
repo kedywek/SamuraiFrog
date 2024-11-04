@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkroha6k87kwx"]
+
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_5pw7r"]
+[ext_resource type="Texture2D" uid="uid://c4rb5a51ald6v" path="res://assets/player/frog_2.png" id="1_gmi7m"]
+
+[sub_resource type="Curve" id="Curve_3phni"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.175292), -1.40888, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4nkx"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_5pw7r")
+dash_curve = SubResource("Curve_3phni")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -51.0
+offset_right = 10.0
+offset_bottom = -37.0
+theme_override_font_sizes/font_size = 10
+text = "debug"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gmi7m")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_l4nkx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
