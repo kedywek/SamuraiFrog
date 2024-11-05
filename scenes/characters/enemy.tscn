@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://csiqa8raal4t2"]
+
+[ext_resource type="Script" path="res://scripts/EnemyMovement.cs" id="1_2ucn5"]
+[ext_resource type="Texture2D" uid="uid://s6b3r0br8etq" path="res://icon.svg" id="2_kkbxm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35k4q"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bllj"]
+size = Vector2(64, 64)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_2ucn5")
+
+[node name="AttackVolume" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackVolume"]
+shape = SubResource("CircleShape2D_35k4q")
+debug_color = Color(1, 0.152941, 0, 0.419608)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_7bllj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kkbxm")
+
+[connection signal="body_entered" from="AttackVolume" to="." method="OnEnterArea2D"]
+[connection signal="body_exited" from="AttackVolume" to="." method="OnExitArea2D"]
