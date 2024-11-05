@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c00lqsybe668d"
-path="res://.godot/imported/frog_grab.png-3e2f5e573fbf5620457dc87446f49fd1.ctex"
+uid="uid://bx6kkkytq5ymf"
+path="res://.godot/imported/frog_none.png-85c7d9bc3986777d81cd4bce972633b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/frog_grab.png"
-dest_files=["res://.godot/imported/frog_grab.png-3e2f5e573fbf5620457dc87446f49fd1.ctex"]
+source_file="res://sprites/player/placeholder/frog_none.png"
+dest_files=["res://.godot/imported/frog_none.png-85c7d9bc3986777d81cd4bce972633b5.ctex"]
 
 [params]
 

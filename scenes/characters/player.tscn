@@ -1,12 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkroha6k87kwx"]
+[gd_scene load_steps=25 format=3 uid="uid://bkroha6k87kwx"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_5pw7r"]
-[ext_resource type="Texture2D" uid="uid://b2pb02eg4a0n6" path="res://sprites/player/frog_pixel_charge.png" id="2_2x2q1"]
-[ext_resource type="Texture2D" uid="uid://ig0q3i7yiixh" path="res://sprites/player/frog_pixel_run.png" id="2_8au5o"]
-[ext_resource type="Texture2D" uid="uid://b5se24iv18b3u" path="res://sprites/player/frog_pixel_idle.png" id="2_8p0ns"]
+[ext_resource type="Texture2D" uid="uid://b2pb02eg4a0n6" path="res://sprites/player/pixelart/frog_pixel_charge.png" id="2_2x2q1"]
+[ext_resource type="Texture2D" uid="uid://ig0q3i7yiixh" path="res://sprites/player/pixelart/frog_pixel_run.png" id="2_8au5o"]
+[ext_resource type="Texture2D" uid="uid://b5se24iv18b3u" path="res://sprites/player/pixelart/frog_pixel_idle.png" id="2_8p0ns"]
+[ext_resource type="Texture2D" uid="uid://ykw5ah1fff2e" path="res://sprites/player/pixelart/shadow_2.png" id="2_12pvh"]
 [ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/CircularProgressBar.png" id="3_8ffhc"]
-[ext_resource type="Texture2D" uid="uid://d1vvvnivf51eb" path="res://sprites/player/frog_pixel_jump.png" id="6_keuuw"]
-[ext_resource type="Texture2D" uid="uid://cnycbvcnsipbw" path="res://sprites/player/frog_pixel_fall.png" id="7_j2qo0"]
+[ext_resource type="Texture2D" uid="uid://d1vvvnivf51eb" path="res://sprites/player/pixelart/frog_pixel_jump.png" id="6_keuuw"]
+[ext_resource type="Texture2D" uid="uid://cnycbvcnsipbw" path="res://sprites/player/pixelart/frog_pixel_fall.png" id="7_j2qo0"]
 [ext_resource type="Texture2D" uid="uid://5j0m30y13nt3" path="res://sprites/player/attack/SP301_01.png" id="8_p8vek"]
 [ext_resource type="Texture2D" uid="uid://cluip4rafkpcc" path="res://sprites/player/attack/SP301_02.png" id="9_03l07"]
 [ext_resource type="Texture2D" uid="uid://cvwi0ttlkskh6" path="res://sprites/player/attack/SP301_03.png" id="10_c7x1m"]
@@ -284,6 +285,11 @@ animations = [{
 script = ExtResource("1_5pw7r")
 dash_curve = SubResource("Curve_3phni")
 metadata/_edit_horizontal_guides_ = [-45.0]
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(1, -11)
+scale = Vector2(1.22917, 1.22917)
+texture = ExtResource("2_12pvh")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -39.0
