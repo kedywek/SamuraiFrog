@@ -7,8 +7,8 @@
 [node name="main" type="Node2D"]
 
 [node name="background" parent="." instance=ExtResource("3_s6xwh")]
-position = Vector2(305, -594)
-scale = Vector2(2.5, 2.5)
+position = Vector2(262, -765)
+scale = Vector2(3, 3)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_pocl6")]
 position = Vector2(-40, 1)
