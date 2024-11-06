@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3t4cp1l5l7cs"]
+
+[ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/CircularProgressBar.png" id="1_sh0aa"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="jump_charge" type="TextureProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -101.0
+offset_right = 101.0
+offset_bottom = -15.0
+grow_vertical = 0
+max_value = 150.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("1_sh0aa")
