@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkroha6k87kwx"]
+[gd_scene load_steps=24 format=3 uid="uid://bkroha6k87kwx"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_5pw7r"]
 [ext_resource type="Texture2D" uid="uid://b2pb02eg4a0n6" path="res://sprites/player/pixelart/frog_pixel_charge.png" id="2_2x2q1"]
@@ -18,15 +18,36 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.175292), -1.40888, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4nkx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov08j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p8vek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_03l07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c7x1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ceflr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tnft7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhdui"]
-particle_flag_disable_z = true
-spread = 16.885
-initial_velocity_max = 133.6
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = 18.62
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4nkx"]
 
 [sub_resource type="Animation" id="Animation_lv5cv"]
 length = 0.001
@@ -252,35 +273,6 @@ _data = {
 "run": SubResource("Animation_oujiy")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ov08j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_p8vek")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_03l07")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_c7x1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ceflr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_tnft7")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"default",
-"speed": 15.0
-}]
-
 [node name="player" type="CharacterBody2D"]
 floor_max_angle = 0.767945
 script = ExtResource("1_5pw7r")
@@ -293,6 +285,33 @@ position = Vector2(1, -10)
 scale = Vector2(1.22917, 1.22917)
 texture = ExtResource("2_12pvh")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2x2q1")
+offset = Vector2(0, -16)
+flip_h = true
+
+[node name="attackR" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -13)
+rotation = -2.53945
+sprite_frames = SubResource("SpriteFrames_ov08j")
+frame = 6
+frame_progress = 1.0
+centered = false
+offset = Vector2(-50.5, 0)
+
+[node name="attackL" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.14, -24.215)
+rotation = 0.760964
+sprite_frames = SubResource("SpriteFrames_ov08j")
+frame = 6
+frame_progress = 1.0
+centered = false
+offset = Vector2(-25.205, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_l4nkx")
+
 [node name="Label" type="Label" parent="."]
 offset_left = -39.0
 offset_top = -39.0
@@ -300,19 +319,6 @@ offset_right = -8.0
 offset_bottom = -25.0
 theme_override_font_sizes/font_size = 10
 text = "debug"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2x2q1")
-offset = Vector2(0, -16)
-flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_l4nkx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-position_smoothing_speed = 200.0
 
 [node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -345,31 +351,10 @@ scale = Vector2(0.03, 0.03)
 fill_mode = 4
 texture_progress = ExtResource("3_8ffhc")
 
-[node name="AttackEffectBehind" type="GPUParticles2D" parent="."]
-visible = false
-position = Vector2(0, -13)
-emitting = false
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_lhdui")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_d0psv")
 }
-
-[node name="attackR" type="AnimatedSprite2D" parent="."]
-position = Vector2(-12, -13)
-rotation = -2.53945
-sprite_frames = SubResource("SpriteFrames_ov08j")
-centered = false
-offset = Vector2(-50.5, 0)
-
-[node name="attackL" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.14, -24.215)
-rotation = 0.760964
-sprite_frames = SubResource("SpriteFrames_ov08j")
-centered = false
-offset = Vector2(-25.205, 0)
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

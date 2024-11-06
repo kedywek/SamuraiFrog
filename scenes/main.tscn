@@ -19,4 +19,11 @@ tile_map_data = PackedByteArray("AAASAA4AAAAOAAAAAAASAA8AAAAOAAEAAAASABAAAAAOAAI
 position = Vector2(93, -717)
 scale = Vector2(1.2, 1.2)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_bottom = 350
+limit_smoothed = true
+position_smoothing_speed = 15.0
+
 [node name="UI" parent="." instance=ExtResource("3_t0fe0")]

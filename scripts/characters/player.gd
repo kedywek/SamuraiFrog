@@ -105,7 +105,6 @@ func handle_state_transitions():
 
 
 func perform_state_actions(delta):
-	$AttackEffectBehind.emitting = false
 	shadow_appear()
 	
 	match state:
@@ -143,7 +142,6 @@ func perform_state_actions(delta):
 					$attackR.play("default")
 				elif velocity.x<0:
 					$attackL.play("default")
-				dashing_effect_particles()
 				
 				$Label.text="Attack"
 				
@@ -163,17 +161,15 @@ func perform_state_actions(delta):
 			
 			
 func flip_sprite():
-	if velocity.x < 0:
-		$Sprite2D.flip_h = true
-	elif velocity.x > 0:
-		$Sprite2D.flip_h = false
+	if Input.is_action_pressed("left"):
+		$Sprite2D.flip_h=true
+	elif Input.is_action_pressed("right"):
+		$Sprite2D.flip_h=false
+	#if velocity.x < 0:
+		#$Sprite2D.flip_h = true
+	#elif velocity.x > 0:
+		#$Sprite2D.flip_h = false
 		
-func dashing_effect_particles():
-	$AttackEffectBehind.emitting = true
-	if velocity.x>0:
-		$AttackEffectBehind.process_material.set_direction(Vector3(-1, 0, 0))
-	elif velocity.x < 0:
-		$AttackEffectBehind.process_material.set_direction(Vector3(1, 0, 0))
 
 func shadow_appear():
 	if is_on_floor():
