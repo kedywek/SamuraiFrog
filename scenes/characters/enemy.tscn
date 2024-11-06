@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/EnemyMovement.cs" id="1_2ucn5"]
 [ext_resource type="Texture2D" uid="uid://s6b3r0br8etq" path="res://icon.svg" id="2_kkbxm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_35k4q"]
-radius = 100.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xnpj"]
+size = Vector2(300, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bllj"]
 size = Vector2(64, 64)
@@ -15,7 +15,7 @@ script = ExtResource("1_2ucn5")
 [node name="AttackVolume" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackVolume"]
-shape = SubResource("CircleShape2D_35k4q")
+shape = SubResource("RectangleShape2D_5xnpj")
 debug_color = Color(1, 0.152941, 0, 0.419608)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
