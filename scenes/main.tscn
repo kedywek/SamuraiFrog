@@ -21,3 +21,5 @@ scale = Vector2(1.2, 1.2)
 
 [node name="Enemy" parent="." instance=ExtResource("4_v0jex")]
 position = Vector2(213, 205)
+_speed = 50.0
+_stoppingDistance = 80.0
