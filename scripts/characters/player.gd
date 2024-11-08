@@ -84,9 +84,9 @@ func handle_state_transitions():
 		$jump_timer.stop()
 		#print(time_left)
 		state = States.Jump
-		if(1.5 > time_left and time_left >= 1.0):
+		if(1 > time_left and time_left >= 0.66):
 			velocity.y = jump_height3
-		elif (1.0 > time_left and time_left >= 0.5):
+		elif (0.66 > time_left and time_left >= 0.33):
 			velocity.y = jump_height2
 		else:
 			velocity.y = jump_height1
