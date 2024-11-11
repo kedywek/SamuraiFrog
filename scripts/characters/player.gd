@@ -29,10 +29,12 @@ func _process(_delta: float) -> void:
 	flip_sprite()
 	
 	#	pokazywanie kółka cooldownu dasha
-	if $jump_regen.value == 100:
-		$jump_regen.visible = false
+	if $DashRegenBar.value == 100:
+		$DashRegenBar.visible = false
+		$GreenDashCircle.visible = true
 	else:
-		$jump_regen.visible = true
+		$DashRegenBar.visible = true
+		$GreenDashCircle.visible = false
 		
 	#	pokazywanie kółka charge'owania jumpa
 	if $jump_timer.is_stopped() or $jump_charge.value == 0:
@@ -43,7 +45,7 @@ func _process(_delta: float) -> void:
 		get_parent().find_child('UI').find_child('jump_charge').visible=true
 	
 	#	zmiana wartości kółka dasha
-	$jump_regen.set_value((1 - $dash_cooldown.time_left)*100)
+	$DashRegenBar.set_value((1 - $dash_cooldown.time_left)*100)
 	
 	#	zmiana wartości charge'owania jumpa
 	#if $jump_timer.time_left > 1:

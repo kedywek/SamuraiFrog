@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkroha6k87kwx"]
+[gd_scene load_steps=26 format=3 uid="uid://bkroha6k87kwx"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_5pw7r"]
 [ext_resource type="Texture2D" uid="uid://b2pb02eg4a0n6" path="res://sprites/player/pixelart/frog_pixel_charge.png" id="2_2x2q1"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b5se24iv18b3u" path="res://sprites/player/pixelart/frog_pixel_idle.png" id="2_8p0ns"]
 [ext_resource type="Texture2D" uid="uid://ykw5ah1fff2e" path="res://sprites/player/pixelart/shadow_2.png" id="2_12pvh"]
 [ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/CircularProgressBar.png" id="3_8ffhc"]
+[ext_resource type="Texture2D" uid="uid://caj8fn0c3s5vw" path="res://sprites/green_circle.png" id="5_dr5bv"]
 [ext_resource type="Texture2D" uid="uid://d1vvvnivf51eb" path="res://sprites/player/pixelart/frog_pixel_jump.png" id="6_keuuw"]
 [ext_resource type="Texture2D" uid="uid://cnycbvcnsipbw" path="res://sprites/player/pixelart/frog_pixel_fall.png" id="7_j2qo0"]
 [ext_resource type="Texture2D" uid="uid://5j0m30y13nt3" path="res://sprites/player/attack/SP301_01.png" id="8_p8vek"]
 [ext_resource type="Texture2D" uid="uid://cluip4rafkpcc" path="res://sprites/player/attack/SP301_02.png" id="9_03l07"]
 [ext_resource type="Texture2D" uid="uid://cvwi0ttlkskh6" path="res://sprites/player/attack/SP301_03.png" id="10_c7x1m"]
+[ext_resource type="Texture2D" uid="uid://biv5vmmnuoe6" path="res://sprites/gray_circle.png" id="10_tve14"]
 [ext_resource type="Texture2D" uid="uid://cqqhk7srhutjs" path="res://sprites/player/attack/SP301_04.png" id="11_ceflr"]
 [ext_resource type="Texture2D" uid="uid://crgjm2pmxmjaq" path="res://sprites/player/attack/SP301_05.png" id="12_tnft7"]
 
@@ -290,6 +292,17 @@ texture = ExtResource("2_2x2q1")
 offset = Vector2(0, -16)
 flip_h = true
 
+[node name="GreyDashCircle" type="Sprite2D" parent="."]
+position = Vector2(-13.5, -30.5)
+scale = Vector2(0.0183333, 0.0183333)
+texture = ExtResource("10_tve14")
+
+[node name="GreenDashCircle" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-13.5, -30.5)
+scale = Vector2(0.0183333, 0.0183333)
+texture = ExtResource("5_dr5bv")
+
 [node name="attackR" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -13)
 rotation = -2.53945
@@ -313,6 +326,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_l4nkx")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -39.0
 offset_top = -39.0
 offset_right = -8.0
@@ -342,12 +356,13 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("3_8ffhc")
 
-[node name="jump_regen" type="TextureProgressBar" parent="."]
-offset_left = -4.0
-offset_top = -42.0
-offset_right = 296.0
-offset_bottom = 258.0
+[node name="DashRegenBar" type="TextureProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -35.0
+offset_right = 282.0
+offset_bottom = 265.0
 scale = Vector2(0.03, 0.03)
+value = 50.0
 fill_mode = 4
 texture_progress = ExtResource("3_8ffhc")
 
