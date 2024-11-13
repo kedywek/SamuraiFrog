@@ -20,7 +20,7 @@ position = Vector2(29, 215)
 scale = Vector2(1.2, 1.2)
 
 [node name="Enemy" parent="." instance=ExtResource("4_v0jex")]
-position = Vector2(397, 184)
-_speed = 50.0
-_chaseFactor = 1.2
-_stoppingDistance = 0.0
+position = Vector2(321, 95)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_v0jex")]
+position = Vector2(254, 232)
