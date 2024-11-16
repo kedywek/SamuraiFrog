@@ -1,0 +1,175 @@
+[gd_scene load_steps=22 format=3 uid="uid://dlpnat7m81tg"]
+
+[ext_resource type="Script" path="res://scripts/enemy/EnemyMovement.cs" id="1_2ucn5"]
+[ext_resource type="Resource" uid="uid://cbpo3owfkkv70" path="res://scripts/enemy/enemy.tres" id="2_t6xop"]
+[ext_resource type="Texture2D" uid="uid://dmkkxkpmg47aw" path="res://sprites/enemy/Mushroom-Idle.png" id="3_eall8"]
+[ext_resource type="Texture2D" uid="uid://dotewcw0p6itq" path="res://sprites/enemy/Mushroom-Run.png" id="4_xk0ts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bllj"]
+size = Vector2(30, 31.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdvli"]
+atlas = ExtResource("3_eall8")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swq48"]
+atlas = ExtResource("3_eall8")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb3w3"]
+atlas = ExtResource("3_eall8")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58mre"]
+atlas = ExtResource("3_eall8")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbxx1"]
+atlas = ExtResource("3_eall8")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm28x"]
+atlas = ExtResource("3_eall8")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsovw"]
+atlas = ExtResource("3_eall8")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbqwa"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn6m1"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c2ag"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqx5k"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a2ce"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y5o7"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glbki"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iqia"]
+atlas = ExtResource("4_xk0ts")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44bgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swq48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb3w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58mre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbxx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm28x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsovw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbqwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn6m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqx5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a2ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y5o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glbki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iqia")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_leftGroundRay", "_rightGroundRay", "_leftWallRay", "_rightWallRay")]
+up_direction = Vector2(0, 1)
+script = ExtResource("1_2ucn5")
+_stats = ExtResource("2_t6xop")
+_leftGroundRay = NodePath("GroundRays/LeftGroundRay")
+_rightGroundRay = NodePath("GroundRays/RightGroundRay")
+_leftWallRay = NodePath("Wall/LeftWallRay")
+_rightWallRay = NodePath("Wall/RightWallRay")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_7bllj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_44bgq")
+animation = &"Run"
+frame_progress = 0.711822
+
+[node name="GroundRays" type="Node2D" parent="."]
+
+[node name="LeftGroundRay" type="RayCast2D" parent="GroundRays"]
+position = Vector2(-25, 0)
+target_position = Vector2(0, 30)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RightGroundRay" type="RayCast2D" parent="GroundRays"]
+position = Vector2(25, 0)
+target_position = Vector2(0, 30)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="LeftWallRay" type="RayCast2D" parent="Wall"]
+position = Vector2(-20, 0)
+target_position = Vector2(-30, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RightWallRay" type="RayCast2D" parent="Wall"]
+position = Vector2(20, 0)
+target_position = Vector2(30, 0)
+hit_from_inside = true
+collide_with_areas = true
