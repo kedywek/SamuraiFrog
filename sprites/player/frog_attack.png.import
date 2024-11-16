@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biv5vmmnuoe6"
-path="res://.godot/imported/gray_circle.png-5a9dcb3099290a115b039411ec3ab3dc.ctex"
+uid="uid://1d1su4t082ki"
+path="res://.godot/imported/frog_attack.png-a8488269b4afaeefc72264364b1709ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gray_circle.png"
-dest_files=["res://.godot/imported/gray_circle.png-5a9dcb3099290a115b039411ec3ab3dc.ctex"]
+source_file="res://sprites/player/frog_attack.png"
+dest_files=["res://.godot/imported/frog_attack.png-a8488269b4afaeefc72264364b1709ed.ctex"]
 
 [params]
 

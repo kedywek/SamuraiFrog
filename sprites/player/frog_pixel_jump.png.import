@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2pb02eg4a0n6"
-path="res://.godot/imported/frog_pixel_charge.png-1eccc9a7724368ecf75b414f9e44d39a.ctex"
+uid="uid://d1vvvnivf51eb"
+path="res://.godot/imported/frog_pixel_jump.png-d4ed04380e3229813e8663ef861b262e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/pixelart/frog_pixel_charge.png"
-dest_files=["res://.godot/imported/frog_pixel_charge.png-1eccc9a7724368ecf75b414f9e44d39a.ctex"]
+source_file="res://sprites/player/frog_pixel_jump.png"
+dest_files=["res://.godot/imported/frog_pixel_jump.png-d4ed04380e3229813e8663ef861b262e.ctex"]
 
 [params]
 

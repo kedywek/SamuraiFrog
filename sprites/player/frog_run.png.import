@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p4cfcnx8s6ec"
-path="res://.godot/imported/light_fade.png-6dfe27abd0b32ed0180214e2aaf26f3b.ctex"
+uid="uid://bgo1xyujfwjxa"
+path="res://.godot/imported/frog_run.png-46c475ede28e5eade02a4823d8bd273b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/light_fade.png"
-dest_files=["res://.godot/imported/light_fade.png-6dfe27abd0b32ed0180214e2aaf26f3b.ctex"]
+source_file="res://sprites/player/frog_run.png"
+dest_files=["res://.godot/imported/frog_run.png-46c475ede28e5eade02a4823d8bd273b.ctex"]
 
 [params]
 

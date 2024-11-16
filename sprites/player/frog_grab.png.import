@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ykw5ah1fff2e"
-path="res://.godot/imported/shadow_2.png-d322818aa9ec0e8bfbd66e03ad8d5e00.ctex"
+uid="uid://c00lqsybe668d"
+path="res://.godot/imported/frog_grab.png-3e2f5e573fbf5620457dc87446f49fd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/pixelart/shadow_2.png"
-dest_files=["res://.godot/imported/shadow_2.png-d322818aa9ec0e8bfbd66e03ad8d5e00.ctex"]
+source_file="res://sprites/player/frog_grab.png"
+dest_files=["res://.godot/imported/frog_grab.png-3e2f5e573fbf5620457dc87446f49fd1.ctex"]
 
 [params]
 

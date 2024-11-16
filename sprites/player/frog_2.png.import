@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ig0q3i7yiixh"
-path="res://.godot/imported/frog_pixel_run.png-52ad2ab7b7db720c70159551358c472f.ctex"
+uid="uid://c4rb5a51ald6v"
+path="res://.godot/imported/frog_2.png-47d5be8a85b4ff8ea0936db1128aaec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/pixelart/frog_pixel_run.png"
-dest_files=["res://.godot/imported/frog_pixel_run.png-52ad2ab7b7db720c70159551358c472f.ctex"]
+source_file="res://sprites/player/frog_2.png"
+dest_files=["res://.godot/imported/frog_2.png-47d5be8a85b4ff8ea0936db1128aaec1.ctex"]
 
 [params]
 

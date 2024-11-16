@@ -29,36 +29,27 @@ func _process(_delta: float) -> void:
 	flip_sprite()
 	
 	#	pokazywanie kółka cooldownu dasha
-	if $DashRegenBar.value == 100:
-		$DashRegenBar.visible = false
-		$GreenDashCircle.visible = true
+	if $jump_regen.value == 100:
+		$jump_regen.visible = false
 	else:
-		$DashRegenBar.visible = true
-		$GreenDashCircle.visible = false
+		$jump_regen.visible = true
 		
 	#	pokazywanie kółka charge'owania jumpa
 	if $jump_timer.is_stopped() or $jump_charge.value == 0:
-		#$jump_charge.visible = false
-		get_parent().find_child('UI').find_child('jump_charge').visible=false
+		$jump_charge.visible = false
 	else:
-		#$jump_charge.visible = true
-		get_parent().find_child('UI').find_child('jump_charge').visible=true
+		$jump_charge.visible = true
 	
 	#	zmiana wartości kółka dasha
-	$DashRegenBar.set_value((1 - $dash_cooldown.time_left)*100)
+	$jump_regen.set_value((1 - $dash_cooldown.time_left)*100)
 	
 	#	zmiana wartości charge'owania jumpa
-	#if $jump_timer.time_left > 1:
-	if $jump_timer.time_left > 0.66:
+	if $jump_timer.time_left > 1:
 		$jump_charge.set_value(50)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(50)
-	#elif $jump_timer.time_left > 0.5:
-	elif $jump_timer.time_left > 0.33:
+	elif $jump_timer.time_left > 0.5:
 		$jump_charge.set_value(100)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(100)
 	else:
 		$jump_charge.set_value(150)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(150)
 
 
 func _physics_process(delta: float) -> void:
@@ -84,11 +75,11 @@ func handle_state_transitions():
 	if state == States.Charge and Input.is_action_just_released("jump"):
 		time_left=$jump_timer.time_left
 		$jump_timer.stop()
-		#print(time_left)
+		print(time_left)
 		state = States.Jump
-		if(1 > time_left and time_left >= 0.66):
+		if(1.5 > time_left and time_left >= 1.0):
 			velocity.y = jump_height3
-		elif (0.66 > time_left and time_left >= 0.33):
+		elif (1.0 > time_left and time_left >= 0.5):
 			velocity.y = jump_height2
 		else:
 			velocity.y = jump_height1
@@ -104,17 +95,18 @@ func handle_state_transitions():
 		
 	if !is_on_floor() and state == States.Jump and not is_dashing and can_dash and Input.is_action_just_pressed("attack") and direction:
 		state = States.Attack
+		#can_dash=false
 
 
 func perform_state_actions(delta):
-	shadow_appear()
+	$AttackEffectBehind.emitting = false
 	
 	match state:
 		States.Idle:
 			$Label.text="Idle"
 			$AnimationPlayer.play("idle")
 			velocity.x = move_toward(velocity.x, 0, run_speed * deceleration)
-					
+			
 		States.Run:
 			$Label.text="Run"
 			$AnimationPlayer.play("run")
@@ -123,10 +115,7 @@ func perform_state_actions(delta):
 		States.Charge:
 			$Label.text="Charge"
 			$AnimationPlayer.play("charge")
-			#velocity.x = 0
-			velocity.x = move_toward(velocity.x, 0, run_speed * deceleration)
-			#if(!is_on_floor()):
-				#state = States.Jump
+			velocity.x = 0
 		
 		States.Jump:
 			$Label.text="Jump"
@@ -144,6 +133,7 @@ func perform_state_actions(delta):
 					$attackR.play("default")
 				elif velocity.x<0:
 					$attackL.play("default")
+				dashing_effect_particles()
 				
 				$Label.text="Attack"
 				
@@ -163,21 +153,18 @@ func perform_state_actions(delta):
 			
 			
 func flip_sprite():
-	if Input.is_action_pressed("left"):
-		$Sprite2D.flip_h=true
-	elif Input.is_action_pressed("right"):
-		$Sprite2D.flip_h=false
-	#if velocity.x < 0:
-		#$Sprite2D.flip_h = true
-	#elif velocity.x > 0:
-		#$Sprite2D.flip_h = false
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+	elif velocity.x > 0:
+		$Sprite2D.flip_h = false
 		
+func dashing_effect_particles():
+	$AttackEffectBehind.emitting = true
+	if velocity.x>0:
+		$AttackEffectBehind.process_material.set_direction(Vector3(-1, 0, 0))
+	elif velocity.x < 0:
+		$AttackEffectBehind.process_material.set_direction(Vector3(1, 0, 0))
 
-func shadow_appear():
-	if is_on_floor():
-		$shadow.visible=true
-	else:
-		$shadow.visible=false
 
 #czas dasha
 func _on_dash_timer_timeout() -> void:
