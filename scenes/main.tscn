@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bhpqsbr5nna7y"]
+[gd_scene load_steps=7 format=4 uid="uid://bhpqsbr5nna7y"]
 
 [ext_resource type="PackedScene" uid="uid://bkroha6k87kwx" path="res://scenes/characters/player.tscn" id="1_qu1rk"]
 [ext_resource type="PackedScene" uid="uid://cjy2hp4qv4y27" path="res://scenes/tileMap/tile_map_layer.tscn" id="2_pocl6"]
 [ext_resource type="PackedScene" uid="uid://2gehlltnor8u" path="res://scenes/background.tscn" id="3_s6xwh"]
 [ext_resource type="PackedScene" uid="uid://c3t4cp1l5l7cs" path="res://scenes/UI.tscn" id="3_t0fe0"]
 [ext_resource type="Texture2D" uid="uid://p4cfcnx8s6ec" path="res://sprites/light_fade.png" id="4_fdsos"]
+[ext_resource type="PackedScene" path="res://scenes/characters/enemy.tscn" id="6_viw5x"]
 
 [node name="main" type="Node2D"]
 
@@ -41,3 +42,9 @@ texture = ExtResource("4_fdsos")
 texture_scale = 0.4
 
 [node name="UI" parent="." instance=ExtResource("3_t0fe0")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_viw5x")]
+position = Vector2(328, 97)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_viw5x")]
+position = Vector2(331, 233)

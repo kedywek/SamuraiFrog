@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlpnat7m81tg"]
+[gd_scene load_steps=22 format=3 uid="uid://5qf0x1piwydi"]
 
 [ext_resource type="Script" path="res://scripts/enemy/EnemyMovement.cs" id="1_2ucn5"]
 [ext_resource type="Resource" uid="uid://cbpo3owfkkv70" path="res://scripts/enemy/enemy.tres" id="2_t6xop"]
