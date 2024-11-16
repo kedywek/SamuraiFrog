@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cbpo3owfkkv70"]
+
+[ext_resource type="Script" path="res://scripts/Stats.cs" id="1_3t02e"]
+
+[resource]
+script = ExtResource("1_3t02e")
+Speed = 80.0
+ChaseFactor = 2.0
+StoppingDistance = 50.0
