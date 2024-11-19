@@ -18,11 +18,19 @@ var dash_direction = 0
 var can_dash = true
 
 
-enum States {Idle, Run, Charge, Jump, Attack}
+enum States {Idle, Run, Charge, Jump, Attack, Grab}
 var state = States.Idle
 var direction
 
 var time_left = 0
+
+#@onready var grabbable_tiles: TileMapLayer = $"../GrabbableTiles"
+#var DetectedTiles: Array[Vector2i] = []
+#var TargetTile:Vector2i = Vector2i(-1,-1)
+
+@onready var grab_tile_group: Node2D = $"../GrabTileGroup"
+var target_tile:Node2D = null
+var CanGrab=false
 
 
 func _process(_delta: float) -> void:
@@ -68,7 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	handle_state_transitions()
 	
-	perform_state_actions(delta)
+	perform_state_actions()
 	
 	move_and_slide()
 	
@@ -79,7 +87,6 @@ func handle_state_transitions():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		state = States.Charge
 		$jump_timer.start()
-		
 		
 	if state == States.Charge and Input.is_action_just_released("jump"):
 		time_left=$jump_timer.time_left
@@ -104,9 +111,12 @@ func handle_state_transitions():
 		
 	if !is_on_floor() and state == States.Jump and not is_dashing and can_dash and Input.is_action_just_pressed("attack") and direction:
 		state = States.Attack
+		
+	if Input.is_action_just_pressed("grab") and CanGrab:
+		state = States.Grab
 
 
-func perform_state_actions(delta):
+func perform_state_actions():
 	shadow_appear()
 	
 	match state:
@@ -137,7 +147,6 @@ func perform_state_actions(delta):
 				
 			velocity.x = move_toward(velocity.x, run_speed * direction, run_speed * acceleration)
 			
-			
 		States.Attack:
 			if not is_dashing:
 				if velocity.x>0:
@@ -160,6 +169,8 @@ func perform_state_actions(delta):
 					velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
 				
 				$dash_timer.start()
+		States.Grab:
+			$Label.text="Grab"
 			
 			
 func flip_sprite():
@@ -187,3 +198,38 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
+
+#func _on_grabbing_range_body_entered(tile: TileMapLayer) -> void:
+	#if tile.is_in_group("GrabbableTiles"):
+		#print("GRAB")
+		#CanGrab=true
+		#tile.visible=true
+		#
+		#var world_pos = tile.global_position
+		#var grid_pos = grabbable_tiles.map_to_local(world_pos)
+		#print(grid_pos)
+		
+#func _on_grabbing_range_body_exited(tile: TileMapLayer) -> void:
+	#if tile.is_in_group("GrabbableTiles"):
+		#CanGrab=false
+		#tile.visible=false
+		
+
+
+#func _on_grabbing_range_body_entered(GrabTile: Node2D) -> void:
+	#print(GrabTile)
+	##print("cos")
+	##if GrabTile.is_in_group("GrabbableTiles"):
+	##GrabTile.visible=true
+	##print(grab_tile_group.get_children())
+	#for points in grab_tile_group.get_children():
+		#if GrabTile.position == points.position:
+			#print(points.position)
+		##print(target_tile.global_position)
+		##print(grab_tile_group.get_all_points())
+		##for points in grab_tile_group.get_all_points():
+			##print(points)
+
+
+func _on_grabbing_range_body_entered(body: Node2D) -> void:
+	print(body)
