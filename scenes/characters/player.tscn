@@ -285,6 +285,8 @@ dash_curve = SubResource("Curve_3phni")
 metadata/_edit_horizontal_guides_ = [-45.0]
 
 [node name="GrabbingRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbingRange"]
 position = Vector2(0, -86)
