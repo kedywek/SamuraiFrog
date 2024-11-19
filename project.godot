@@ -12,12 +12,15 @@ config_version=5
 
 config/name="SamuraiFrog"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [global_group]
 
 GrabbableTiles=""
+[dotnet]
+
+project/assembly_name="SamuraiFrog"
 
 [input]
 

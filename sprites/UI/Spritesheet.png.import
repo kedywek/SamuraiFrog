@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biv5vmmnuoe6"
-path="res://.godot/imported/gray_circle.png-5a9dcb3099290a115b039411ec3ab3dc.ctex"
+uid="uid://ffs6ggv3c4tx"
+path="res://.godot/imported/Spritesheet.png-e1945e8d5ead0436033367d3e6e1922e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gray_circle.png"
-dest_files=["res://.godot/imported/gray_circle.png-5a9dcb3099290a115b039411ec3ab3dc.ctex"]
+source_file="res://sprites/UI/Spritesheet.png"
+dest_files=["res://.godot/imported/Spritesheet.png-e1945e8d5ead0436033367d3e6e1922e.ctex"]
 
 [params]
 

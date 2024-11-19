@@ -1,6 +1,85 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3t4cp1l5l7cs"]
+[gd_scene load_steps=14 format=3 uid="uid://bs2oqhouwcv3n"]
 
-[ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/CircularProgressBar.png" id="1_sh0aa"]
+[ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/UI/CircularProgressBar.png" id="1_cmupa"]
+[ext_resource type="Texture2D" uid="uid://c3xon17eqga6t" path="res://sprites/UI/Spritesheet2.png" id="2_qmele"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xxv3"]
+atlas = ExtResource("2_qmele")
+region = Rect2(0, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s33qx"]
+atlas = ExtResource("2_qmele")
+region = Rect2(64, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4705"]
+atlas = ExtResource("2_qmele")
+region = Rect2(128, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4n1d"]
+atlas = ExtResource("2_qmele")
+region = Rect2(192, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80r0o"]
+atlas = ExtResource("2_qmele")
+region = Rect2(256, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17wrd"]
+atlas = ExtResource("2_qmele")
+region = Rect2(320, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1q54"]
+atlas = ExtResource("2_qmele")
+region = Rect2(384, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd0ex"]
+atlas = ExtResource("2_qmele")
+region = Rect2(448, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4qya"]
+atlas = ExtResource("2_qmele")
+region = Rect2(512, 0, 64, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok2ej"]
+atlas = ExtResource("2_qmele")
+region = Rect2(576, 0, 64, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03a3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xxv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s33qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4705")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4n1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80r0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17wrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1q54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd0ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4qya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok2ej")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -16,4 +95,20 @@ grow_vertical = 0
 max_value = 150.0
 fill_mode = 4
 nine_patch_stretch = true
-texture_progress = ExtResource("1_sh0aa")
+texture_progress = ExtResource("1_cmupa")
+
+[node name="Spritesheet2" type="Sprite2D" parent="."]
+position = Vector2(60, 60)
+scale = Vector2(4, 4)
+texture = ExtResource("2_qmele")
+hframes = 10
+vframes = 7
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(30, 30)
+scale = Vector2(2.05556, 2.05556)
+sprite_frames = SubResource("SpriteFrames_03a3d")
+autoplay = "default"
+frame = 3
+frame_progress = 0.707481
