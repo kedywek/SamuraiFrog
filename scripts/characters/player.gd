@@ -54,6 +54,7 @@ func _process(_delta: float) -> void:
 	
 	#	zmiana wartości kółka dasha
 	$DashRegenBar.set_value((1 - $dash_cooldown.time_left)*100)
+	get_parent().find_child('UI').find_child('DashCooldownBar').set_value((1 - $dash_cooldown.time_left)*100)
 	
 	#	zmiana wartości charge'owania jumpa
 	#if $jump_timer.time_left > 1:
@@ -114,7 +115,6 @@ func handle_state_transitions():
 		
 	if Input.is_action_just_pressed("grab") and CanGrab:
 		state = States.Grab
-
 
 func perform_state_actions():
 	shadow_appear()
