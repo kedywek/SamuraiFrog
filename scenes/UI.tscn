@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs2oqhouwcv3n"]
+[gd_scene load_steps=8 format=3 uid="uid://bs2oqhouwcv3n"]
 
 [ext_resource type="Texture2D" uid="uid://b20stv1thxi11" path="res://sprites/UI/CircularProgressBar.png" id="1_cmupa"]
+[ext_resource type="Script" path="res://scripts/characters/ui.gd" id="1_wq42i"]
 [ext_resource type="Texture2D" uid="uid://c3xon17eqga6t" path="res://sprites/UI/Spritesheet2.png" id="2_qmele"]
 [ext_resource type="Texture2D" uid="uid://srgdllyqa7r5" path="res://sprites/UI/healthbar1.png" id="3_xikvy"]
 [ext_resource type="Texture2D" uid="uid://dmsgksicdyxfk" path="res://sprites/UI/healthbar3.png" id="4_ctsox"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cobmhgbri8k2f" path="res://sprites/UI/jumpbar_2.png" id="6_kykxl"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_wq42i")
 
 [node name="jump_charge" type="TextureProgressBar" parent="."]
 anchors_preset = 2

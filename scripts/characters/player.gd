@@ -45,29 +45,25 @@ func _process(_delta: float) -> void:
 		$GreenDashCircle.visible = false
 		
 	#	pokazywanie kółka charge'owania jumpa
-	if $jump_timer.is_stopped() or $jump_charge.value == 0:
-		#$jump_charge.visible = false
-		get_parent().find_child('UI').find_child('jump_charge').visible=false
+	if $jump_timer.is_stopped():
+		$"../UI".jump_charge_visibility(false)
+		
 	else:
-		#$jump_charge.visible = true
-		get_parent().find_child('UI').find_child('jump_charge').visible=true
+		$"../UI".jump_charge_visibility(true)
 	
 	#	zmiana wartości kółka dasha
 	$DashRegenBar.set_value((1 - $dash_cooldown.time_left)*100)
-	get_parent().find_child('UI').find_child('DashCooldownBar').set_value((1 - $dash_cooldown.time_left)*100)
+	$"../UI".dash_coolDownBar_set_value((1 - $dash_cooldown.time_left)*100)
 	
 	#	zmiana wartości charge'owania jumpa
-	#if $jump_timer.time_left > 1:
 	if $jump_timer.time_left > 0.66:
-		$jump_charge.set_value(50)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(50)
-	#elif $jump_timer.time_left > 0.5:
+		$"../UI".jump_charve_set_value(50);
+
 	elif $jump_timer.time_left > 0.33:
-		$jump_charge.set_value(100)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(100)
+		$"../UI".jump_charve_set_value(100);
+	
 	else:
-		$jump_charge.set_value(150)
-		get_parent().find_child('UI').find_child('jump_charge').set_value(150)
+		$"../UI".jump_charve_set_value(150);
 
 
 func _physics_process(delta: float) -> void:
@@ -92,7 +88,7 @@ func handle_state_transitions():
 	if state == States.Charge and Input.is_action_just_released("jump"):
 		time_left=$jump_timer.time_left
 		$jump_timer.stop()
-		#print(time_left)
+
 		state = States.Jump
 		if(1 > time_left and time_left >= 0.66):
 			velocity.y = jump_height3
@@ -178,10 +174,6 @@ func flip_sprite():
 		$Sprite2D.flip_h=true
 	elif Input.is_action_pressed("right"):
 		$Sprite2D.flip_h=false
-	#if velocity.x < 0:
-		#$Sprite2D.flip_h = true
-	#elif velocity.x > 0:
-		#$Sprite2D.flip_h = false
 		
 
 func shadow_appear():
@@ -195,7 +187,6 @@ func _on_dash_timer_timeout() -> void:
 	state = States.Jump
 	is_dashing = false
 	
-
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
 
