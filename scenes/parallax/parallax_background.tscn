@@ -1,15 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://crak3kop25big"]
+[gd_scene load_steps=6 format=3 uid="uid://crak3kop25big"]
 
-[ext_resource type="Texture2D" uid="uid://dt2f28kvq7jwp" path="res://sprites/background/Layer_0011_0.png" id="1_j6hfj"]
-[ext_resource type="Texture2D" uid="uid://chj7mu6ak5fq4" path="res://sprites/background/Layer_0010_1.png" id="2_v4fcg"]
-[ext_resource type="Texture2D" uid="uid://nhk3y4dc035c" path="res://sprites/background/Layer_0009_2.png" id="3_sd672"]
-[ext_resource type="Texture2D" uid="uid://cfxu50f8yqis6" path="res://sprites/background/Layer_0008_3.png" id="4_ymhw1"]
-[ext_resource type="Texture2D" uid="uid://c3g50cvftv7tl" path="res://sprites/background/Layer_0006_4.png" id="5_wwlgl"]
-[ext_resource type="Texture2D" uid="uid://c2obh7b2yp8ed" path="res://sprites/background/Layer_0005_5.png" id="6_jqebj"]
-[ext_resource type="Texture2D" uid="uid://d3m2ordiu30ja" path="res://sprites/background/Layer_0003_6.png" id="7_eelpi"]
+[ext_resource type="Texture2D" uid="uid://dt2f28kvq7jwp" path="res://sprites/background/background/Layer_0011_0.png" id="1_j6hfj"]
+[ext_resource type="Texture2D" uid="uid://chj7mu6ak5fq4" path="res://sprites/background/background/Layer_0010_1.png" id="2_v4fcg"]
+[ext_resource type="Texture2D" uid="uid://nhk3y4dc035c" path="res://sprites/background/Layer_0009_2/Layer_0009_2.png" id="3_sd672"]
+[ext_resource type="Texture2D" uid="uid://cfxu50f8yqis6" path="res://sprites/background/Layer_0008_3/Layer_0008_3.png" id="4_ymhw1"]
 [ext_resource type="Texture2D" uid="uid://blg2uel87ie5u" path="res://sprites/background/Layer_0002_7.png" id="8_6est0"]
-[ext_resource type="Texture2D" uid="uid://cl1ru3esgkrj4" path="res://sprites/background/Layer_0001_8.png" id="9_lra7n"]
-[ext_resource type="Texture2D" uid="uid://d3u5bjtxsjo2n" path="res://sprites/background/Layer_0000_9.png" id="10_r0b2s"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -50,7 +45,6 @@ motion_offset = Vector2(0, 50)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 z_index = 6
 position = Vector2(3, 25)
-texture = ExtResource("5_wwlgl")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
 position = Vector2(0, -418)
@@ -59,7 +53,6 @@ motion_scale = Vector2(0.1, 0.1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
 z_index = 6
 position = Vector2(3, 25)
-texture = ExtResource("6_jqebj")
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
 position = Vector2(0, -418)
@@ -68,7 +61,6 @@ motion_scale = Vector2(0.1, 0.1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
 z_index = 6
 position = Vector2(3, 25)
-texture = ExtResource("7_eelpi")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="."]
 position = Vector2(0, -418)
@@ -86,7 +78,6 @@ motion_scale = Vector2(0.1, 0.1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer9"]
 z_index = 6
 position = Vector2(3, 25)
-texture = ExtResource("9_lra7n")
 
 [node name="ParallaxLayer10" type="ParallaxLayer" parent="."]
 position = Vector2(0, -418)
@@ -95,4 +86,3 @@ motion_scale = Vector2(0.1, 0.1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer10"]
 z_index = 6
 position = Vector2(3, 25)
-texture = ExtResource("10_r0b2s")
