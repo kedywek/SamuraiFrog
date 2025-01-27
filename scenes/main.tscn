@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://bhpqsbr5nna7y"]
+[gd_scene load_steps=8 format=4 uid="uid://bhpqsbr5nna7y"]
 
+[ext_resource type="Script" path="res://scripts/main/casting_values_for_background.gd" id="1_phu3r"]
 [ext_resource type="PackedScene" uid="uid://bkroha6k87kwx" path="res://scenes/characters/player.tscn" id="1_qu1rk"]
 [ext_resource type="PackedScene" uid="uid://cjy2hp4qv4y27" path="res://scenes/tileMap/tile_map_layer.tscn" id="2_pocl6"]
 [ext_resource type="PackedScene" uid="uid://2gehlltnor8u" path="res://scenes/background.tscn" id="3_s6xwh"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://5qf0x1piwydi" path="res://scenes/characters/enemy.tscn" id="6_viw5x"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_phu3r")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -26,7 +28,7 @@ scale = Vector2(1.2, 1.2)
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
 process_callback = 0
-limit_bottom = 350
+limit_bottom = 0
 limit_smoothed = true
 position_smoothing_speed = 15.0
 

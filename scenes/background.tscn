@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2gehlltnor8u"]
+[gd_scene load_steps=15 format=3 uid="uid://2gehlltnor8u"]
 
 [ext_resource type="Texture2D" uid="uid://ekakoy7yynwc" path="res://sprites/background/Layer_0005_5/Layer_0005_5-bottom.png" id="3_8565q"]
 [ext_resource type="Texture2D" uid="uid://bu6awlfti8hkh" path="res://sprites/background/Layer_0005_5/Layer_0005_5-middle.png" id="4_3x8p3"]
@@ -11,8 +11,24 @@
 [ext_resource type="Texture2D" uid="uid://df2mjtcfmqo12" path="res://sprites/background/Layer_0003_6/Layer_0003_6-bottom.png" id="10_nuj4d"]
 [ext_resource type="Texture2D" uid="uid://chj7mu6ak5fq4" path="res://sprites/background/background/Layer_0010_1.png" id="11_gu7iw"]
 [ext_resource type="Texture2D" uid="uid://cmi7m6y4n4eyn" path="res://sprites/background/Layer_0003_6/Layer_0003_6-middle.png" id="11_txlki"]
+[ext_resource type="Shader" path="res://scripts/background/background.gdshader" id="12_edcre"]
+
+[sub_resource type="GDScript" id="GDScript_bpe2a"]
+script/source = "extends ParallaxBackground
+
+@onready var colorRect = $ParallaxLayer/ColorRect
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pddkv"]
+shader = ExtResource("12_edcre")
+shader_parameter/colorUpper = Color(1, 1, 1, 0.392157)
+shader_parameter/colorLower = Color(0, 0, 0, 0.392157)
+shader_parameter/playerY = null
+shader_parameter/worldYMin = 0.0
+shader_parameter/worldYMax = 1500.0
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+script = SubResource("GDScript_bpe2a")
 
 [node name="3-06-long-1" type="ParallaxLayer" parent="."]
 z_index = -2
@@ -254,6 +270,14 @@ z_index = -10
 motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(3.99976, 53)
-scale = Vector2(7.77263, 4.75662)
+position = Vector2(1398.5, 15)
+scale = Vector2(5.91487, 3.5309)
 texture = ExtResource("11_gu7iw")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_pddkv")
+offset_left = -1352.0
+offset_top = -1380.0
+offset_right = 4142.0
+offset_bottom = 1423.0
+color = Color(0.266667, 0.533333, 0.854902, 1)
